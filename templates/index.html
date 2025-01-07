@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'Accueil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenue sur la Plateforme d'Analyse de Données</h1>
+        <img src="{{ url_for('static',filename='img/NICHÉ_Infolettre-Avril_Header_Data.jpg') }}">
+        <h2>Connectez vous à votre compte</h2>
+        <div class="options">
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="{{ url_for('user_login') }}"><button>Connexion Utilisateur</button></a>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="{{ url_for('admin_login') }}"><button>Connexion Administrateur</button></a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Plateforme d'Analyse de Données. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="sidebar">
+        <a href="{{ url_for('dashboard') }}" class="{% if active_page == 'dashboard' %}active{% endif %}">Accueil</a>
+        <a href="{{ url_for('about') }}" class="{% if active_page == 'about' %}active{% endif %}">À propos de l'application</a>
+        <a href="{{ url_for('user_account') }}" class="{% if active_page == 'account' %}active{% endif %}">Mon compte</a>
+        <a href="/go_to_app2">Faire une demande de prêt</a>
+
+    </div>
+    <div class="main-content">
+        <div class="top-bar">
+            <div class="user-info">
+                <span>{{ username }}</span>
+                <img src="{{ url_for('static', filename='img/Sample_User_Icon.png') }}" alt="User Icon">
+                <a href="{{ url_for('logout') }}">
+                    <img src="{{ url_for('static', filename='img/4115235-exit-logout-sign-out_114030.png') }}"  class="logout-button" alt="disconnection icon">
+                </a>
+            </div>
+        </div>
+        <div class="content">
+            <h1>Bienvenue, {{ username }}!</h1>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plateforme d'Analyse de Données</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenue sur la Plateforme d'Analyse de Données</h1>
+        <img src="{{ url_for('static', filename='img/NICHÉ_Infolettre-Avril_Header_Data.jpg') }}" alt="Description de l'image">
+        <h2>Connectez vous à votre compte </h2>
+        <div class="login-options">
+            <div class="user-login">
+                <h2>Connexion Utilisateur</h2>
+                <a href="{{ url_for('user_login') }}">
+                    <button>Se connecter en tant qu'utilisateur</button>
+                </a>
+            </div>
+            <div class="admin-login">
+                <h2>Connexion Administrateur</h2>
+                <a href="{{ url_for('admin_login') }}">
+                    <button>Se connecter en tant qu'administrateur</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Plateforme d'analyse de données. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
+(index.html)
+
+------------------------------------------------------------------------------------------------------------------
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #D3D3D3;
+}
+
+img {
+    width: 650px; /* Réduire la taille de l'image à 50% de la largeur du conteneur */
+    height: 300px; /* Maintenir le ratio d'aspect */
+    margin-bottom: 10px;
+    transform: translateX(-20px);
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.
+.login-box {
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 1px;
+    padding: 40px;
+    text-align: center;
+    max-width: 350px;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    background-color: #fafafa;
+    box-sizing: border-box;
+}
+
+.login-box button[type="submit"],
+.login-box .back-button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 3px;
+    background-color: #0095f6;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-box button[type="submit"]:hover,
+.login-box .back-button:hover {
+    background-color: #007bff;
+}
+
+.login-box .back-button {
+    background-color: #6c757d;
+    margin-top: 10px;
+}
+
+.login-box .back-button:hover {
+    background-color: #5a6268;
+}
+h1 {
+    color: #333;
+}
+
+h2 {
+    color: #333;
+}
+
+.login-options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.user-login, .admin-login {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px; /* Ajouter de l'espace autour de chaque div */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #002366; /* Couleur bleu foncé */
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+}
+
+(style.css)
+------------------------------------------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion Utilisateur</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1>Plateforme d'Analyse de Données</h1>
+            <form method="POST">
+                <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+                <input type="password" name="password" placeholder="Mot de passe" required>
+                <button type="submit">Se connecter</button>
+            </form>
+            <a href="#">Mot de passe oublié ?</a>
+            <p>Vous n'avez pas de compte ? <a href="#">Créer un compte</a></p>
+            <a href="{{ url_for('index') }}">
+                <button class="back-button">Retour</button>
+            </a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Plateforme d'analyse de données. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
+
+(user.html)
+
+------------------------------------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion Administrateur</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+           <h2>Connexion Administrateur</h2>
+            <form action="{{ url_for('admin_login') }}" method="post">
+                <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+                <input type="password" name="password" placeholder="Mot de passe" required>
+                <button type="submit">Se connecter</button>
+            </form>
+            <a href="{{ url_for('index') }}">
+                <button class="back-button">Retour</button>
+            </a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Plateforme d'analyse de données. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
+
+(admin.html)
+
+----------------------------------------------------------------------------------------------------
+
+from flask import Flask, render_template, request, redirect, url_for
+from flask_mysqldb import MySQL
+
+app = Flask(__name__)
+
+# Configuration de la connexion à MySQL
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'username'
+app.config['MYSQL_PASSWORD'] = 'password'
+app.config['MYSQL_DB'] = 'db_name'
+
+mysql = MySQL(app)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/user/login', methods=['GET', 'POST'])
+def user_login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT * FROM users WHERE username = %s AND password = %s", (username, password))
+        user = cur.fetchone()
+        cur.close()
+        if user:
+            return 'Connexion utilisateur réussie !'
+        else:
+            return 'Identifiants incorrects. Veuillez réessayer.'
+    return render_template('user_login.html')
+
+@app.route('/admin/login', methods=['GET', 'POST'])
+def admin_login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        if username == 'admin' and password == 'admin':
+            return 'Connexion administrateur réussie !'
+        else:
+            return 'Identifiants incorrects. Veuillez réessayer.'
+    return render_template('admin_login.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+(app.py)

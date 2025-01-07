@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon compte</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="sidebar">
+        <a href="{{ url_for('dashboard') }}">Accueil</a>
+        <a href="{{ url_for('about') }}">À propos de l'application</a>
+        <a href="{{ url_for('user_account') }}">Mon compte</a>
+        <a href="{{ url_for('predict') }}">Faire une demande de prêt </a>
+    </div>
+    <div class="main-content">
+        <div class="top-bar">
+            <div class="user-info">
+                <img src="{{ url_for('static', filename='img/Sample_User_Icon.png') }}" alt="User Icon">
+                <span>{{ username }}</span>
+                <a href="{{ url_for('logout') }}" class="logout-button">Se déconnecter</a>
+            </div>
+        </div>
+        <div class="content">
+            <h1>Mon compte</h1>
+            <p>Informations de votre compte...</p>
+        </div>
+    </div>
+</body>
+</html>
