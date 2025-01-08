@@ -41,6 +41,8 @@ Technologies Utilisées
 2. Accéder à l'application dans un navigateur:
    http://127.0.0.1:5000
 
+
+# Informations supplémentaires
 Ce projet a été développé dans le cadre d'un mémoire académique
 
 adresse mail pour les suggestions et apports : [pascalaurel589@gmail.com]
