@@ -1,6 +1,8 @@
 # Ignore les fichiers de configuration liés à npm et Tailwind CSS
+node_modules/
 package.json
 package-lock.json
 postcss.config.js
 tailwind.config.js
 tailwindcss.txt
+requirements_i.txt
