@@ -17,5 +17,3 @@ Flask-Session==0.4.0
 Flask-Cors==3.1.1
 tailwindcss==3.2.4
 postcss-cli==10.1.0
-
-
