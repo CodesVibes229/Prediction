@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tailwind.css') }}">
 </head>
 <body>
     <div class="sidebar">
         <a href="{{ url_for('dashboard') }}" class="{% if active_page == 'dashboard' %}active{% endif %}">Accueil</a>
         <a href="{{ url_for('about') }}" class="{% if active_page == 'about' %}active{% endif %}">À propos de l'application</a>
         <a href="{{ url_for('user_account') }}" class="{% if active_page == 'account' %}active{% endif %}">Mon compte</a>
-        <a href="/go_to_app2">Faire une demande de prêt</a>
-
+        <a href="{{ url_for('predict') }}" class="{% if active_page == 'predict' %}active{% endif %}">Faire une demande de prêt</a>
     </div>
     <div class="main-content">
         <div class="top-bar">

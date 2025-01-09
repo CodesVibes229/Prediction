@@ -1,24 +1,20 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demande de prêt</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/pret.css') }}">
-
+  <meta charset="UTF-8">
+  <title>Faites une demande de prêt</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/tailwind.css') }}">
 </head>
 
 <body>
  <div class="login">
-	<h1>Faite la vérification de demande de prêt </h1>
-
+        <h1>Faites votre demande de prêt</h1>
     <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="Gender" placeholder="Le genre de la personne" required="required" />
-        <input type="text" name="Married" placeholder="Marrié ou pas" required="required" />
-        <input type="text" name="ApplicantIncome" placeholder="Revenu du demandeur">
-		<input type="text" name="CoapplicantIncome" placeholder="Revenu du conjoint" required="required" />
-        <input type="text" name="Credit_History" placeholder="Déjà eu un crédit ou pas">
-
+        <input type="text" name="Gender" placeholder="Le genre du client" required="required" />
+        <input type="text" name="Married" placeholder="Marié ou pas " required="required" />
+        <input type="text" name="ApplicantIncome" placeholder="Revenu du demandeur" required="required">
+        <input type="text" name="CoapplicantIncome" placeholder="Revenu du partenaire" required="required">
+        <input type="text" name="Credit_History" placeholder="Historique de crédit" required="required">
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
 
@@ -27,7 +23,5 @@
    {{ prediction_text }}
 
  </div>
-
-
 </body>
 </html>

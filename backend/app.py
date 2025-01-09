@@ -1,11 +1,15 @@
+from debian.debtags import output
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
+import numpy as np
+import pickle
+from debian.debtags import output
+
 
 from werkzeug.security import generate_password_hash, check_password_hash
-
-
-app = Flask(__name__)
+model = pickle.load(open('model.pkl', 'rb'))
+app = Flask(__name__, template_folder='../frontend/templates', static_folder='../frontend/static/css')
 app.secret_key = 'your_secret_key'
 
 # Configuration de la connexion à MySQL
@@ -15,14 +19,13 @@ app.config['MYSQL_PASSWORD'] = 'LicenceMonetiqueWeb@229'
 app.config['MYSQL_DB'] = 'analyse'
 
 mysql = MySQL(app)
-
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/go_to_app2')
-def go_to_app2():
-    return redirect("http://127.0.0.1:5001")
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 @app.route('/dashboard')
 def dashboard():
@@ -90,6 +93,18 @@ def create_account():
             return redirect(url_for('user_login'))
     return render_template('create_account.html')
 
+@app.route('/predict', methods=['GET', 'POST'])
+def predict():
+    if request.method == 'POST' and request.form:
+        try:
+            int_features = [int(x) for x in request.form.values()]
+            final_features = [np.array(int_features)]
+            prediction = model.predict(final_features)
+            output = round(prediction[0], 2)
+            return render_template('prediction.html', prediction_text=f'La réponse à votre demande est {output}')
+        except Exception as e:
+            return render_template('prediction.html', prediction_text=f'Erreur : {e}')
+    return render_template('prediction.html')
 
 @app.route('/logout')
 def logout():
@@ -97,4 +112,4 @@ def logout():
     return redirect(url_for('user_login'))
 
 if __name__ == '__main__':
-    app.run(debug=True,port=5000)
+    app.run(debug=True)
