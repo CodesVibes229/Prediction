@@ -59,7 +59,7 @@ pip install -r requirements.txt
 ```
 
 ### 6. Installer les dépendances frontend avec npm
-Accédez au répertoire `frontend` (si vous avez séparé les fichiers frontend et backend) et installez les dépendances npm, y compris Tailwind CSS :
+Accédez au répertoire `frontend` et installez les dépendances npm, y compris Tailwind CSS :
 
 ```bash
 cd frontend
